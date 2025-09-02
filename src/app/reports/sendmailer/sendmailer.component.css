@@ -1,0 +1,23 @@
+.btn-send {
+    background: linear-gradient(135deg, #4e73df, #224abe); /* gradient background */
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* space between icon and text */
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .btn-send i {
+    font-size: 14px; /* size of FontAwesome icon */
+  }
+  
+  .btn-send:hover {
+    background: linear-gradient(135deg, #5a5c69, #2e59d9);
+    transform: translateY(-2px); /* small lift on hover */
+  }
+  

@@ -1,0 +1,10 @@
+.spacer-row td {
+    height: 20px;
+    /* Adjust height as needed */
+    border: none;
+    /* Remove border for cleaner appearance */
+}
+
+.capitalize-text {
+    text-transform: capitalize;
+}

@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Poppins:');
+.nav .collapse.show {
+  background-color: #ECF1F9;
+}
+.nav-link{
+  cursor: pointer;
+  /* font-family: 'Roboto', sans-serif'; */
+  font-family: 'Roboto' !important ;
+  font-weight: 400px;
+  font-size: 15px;
+}
+
+.nav-item .nav-link:active, .nav-item .nav-link:focus {
+  background-color: #D1DBEB !important;
+  border-left: 3px solid #042b7b;
+  border-radius: 3px;
+}
+
+
+.navbar .navbar-brand-wrapper .navbar-brand-inner-wrapper .navbar-toggler:focus {
+  color: transparent !important;
+}
+.menu-icon{
+  color:#a569bd !important;
+}
+.scroll-container {
+  height: 30rem;
+  overflow-y: scroll;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #042b7b;
+  border-radius: 5px;
+} 

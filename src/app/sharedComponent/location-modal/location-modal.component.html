@@ -1,0 +1,41 @@
+<!-- centralized-modal.component.html -->
+<div appDraggableModal class="modal fade" [class.show]="isOpen" [style.display]="isOpen ? 'block' : 'none'"
+    id="lokModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header draggable">
+                <h5 class="modal-title" id="exampleModalLabel">Execution Location Details</h5>
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+            </div>
+            <div class="table-responsive location-table">
+                <table class="table table-hover table-striped custom-table table-bordered table-styled">
+                    <thead class="table-primary text-nowrap">
+                        <tr>
+                            <th>S No</th>
+                            <th>Location Name</th>
+                            <th>Location Address</th>
+                            <th>City</th>
+                            <th>District</th>
+                            <th>State</th>
+                            <th>Country</th>
+                            <th>Pincode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let a of locationArray; index as i">
+                            <td class="sn-col">{{ i + 1 }}</td>
+                            <td> {{ a?.site_location | defaultValue }} </td>
+                            <td>{{ a?.location_address | defaultValue }}</td>
+                            <td>{{ a?.city | defaultValue }}</td>
+                            <td>{{ a?.district_name | defaultValue }}</td>
+                            <td>{{ a?.state_name | defaultValue }}</td>
+                            <td>{{ a?.country | defaultValue }}</td>
+                            <td>{{ a?.pincode | defaultValue }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop" [ngClass]="{'show': isOpen}" *ngIf="isOpen"></div>

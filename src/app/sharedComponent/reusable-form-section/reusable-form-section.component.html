@@ -1,0 +1,66 @@
+<div class="row" [formGroup]="form">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="form-label fl-10">Client<span class="required-asterisk">*</span></label>
+            <select formControlName="utility_id" class="form-select form-select-sm" (change)="getDetails($event)">
+                <option [selected]="true" [disabled]="true" [value]="null">Select Client Company</option>
+                <option *ngFor="let c of companyList" [value]="c?.company_id">{{ c?.company_name }}</option>
+            </select>
+            <div *ngIf="form.get('utility_id')?.touched && form.get('utility_id')?.invalid">
+                <small class="text-danger" *ngIf="form.get('utility_id')?.errors?.['required']">*Required</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="form-label fl-10">Tender Title<span class="required-asterisk">*</span></label>
+            <select formControlName="tender_id" #tenderID class="form-select form-select-sm" (change)="getrefData(tenderID.value)">
+                <option [selected]="true" [disabled]="true">Select Project</option>
+                <option *ngFor="let c of tenderDetailsData" [value]="c?.tender_id">{{ c?.tender_title }}</option>
+            </select>
+            <div *ngIf="form.get('tender_id')?.touched && form.get('tender_id')?.invalid">
+                <small class="text-danger" *ngIf="form.get('tender_id')?.errors?.['required']">*Required</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="form-label fl-10">NIT No</label>
+            <input class="form-control form-control-sm" readonly
+                value="{{ filterTenderDetailsData[0]?.tender_ref_no }}">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="form-label fl-10">Publish Date</label>
+            <input class="form-control form-control-sm" readonly
+                value="{{ filterTenderDetailsData[0]?.publish_date | date: 'dd/MM/yyyy' : 'GMT' }}">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="form-label fl-10">Category</label>
+            <input class="form-control form-control-sm" readonly [value]="filterTenderDetailsData[0]?.qacatagory">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="form-label fl-10">Sub-Category</label>
+            <input class="form-control form-control-sm" readonly [value]="filterTenderDetailsData[0]?.subqacatagory">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="form-label fl-10">Capacity</label>
+            <input class="form-control form-control-sm" readonly [value]="filterTenderDetailsData[0]?.capacity">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="form-label fl-10">Execution Location</label>
+            <!-- <input class="form-control form-control-sm" readonly [value]="filterTenderDetailsData[0]?.tender_location"> -->
+            <app-location-section-shared class="form-control form-control-sm" [tenderLocation]="filterTenderDetailsData?.[0]?.tender_location?.[0] || ''" [rowData]="filterTenderDetailsData?.[0]" (locationClick)="rowLocation($event)">
+            </app-location-section-shared>
+        </div>
+    </div>
+</div>

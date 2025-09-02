@@ -1,0 +1,159 @@
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="d-flex justify-content-between flex-wrap">
+                <div class="d-flex align-items-end flex-wrap">
+                    <div class="mr-md-3 mr-xl-5">
+                        <h4 class="page-title" onclick="goBack()"><i class="mdi mdi-chevron-left mdi-2"></i>Send Mailer</h4>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-end flex-wrap"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row my-10">
+                        <div class="col-lg-4 align-searchbar">
+                            <input [(ngModel)]="searchText" type="search" class="form-control form-control-sm" placeholder="Search">
+                        </div>
+                        <div class="col-lg-8">
+                            <form [formGroup]="searchForm" (ngSubmit)="onSearch()"  style="float: inline-end;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="head-ul mob-li-space d-flex float-left pl-0">
+                                            <li>
+                                                <label class="col-form-label">Type</label>
+                                                <select formControlName="type" class="form-select form-select-sm">
+                                                    <option [selected]="true" [disabled]="true" [value]="null">Select Type</option>
+                                                    <option>Prospect</option>
+                                                    <option>Customer</option>
+                                                </select>
+                                            </li>
+                                            <li>
+                                                <label class="col-form-label">Domain</label>
+                                                <input formControlName="domain" type="text" class="form-control form-control-sm"/>
+                                            </li>
+                                            <li>
+                                                <label class="col-form-label">Networth (Cr)</label>
+                                                <div class="d-flex">
+                                                    <select formControlName="netWorth" class="form-select form-select-sm">
+                                                        <option [selected]="true" [disabled]="true" [value]="null">Select Networth</option>
+                                                        <option value=">=">&gt;=</option>
+                                                        <option value="<=">&lt;=</option>
+                                                    </select>
+                                                    <input type="number" formControlName="netWorthValue" placeholder="Enter value" class="form-control form-control-sm" />
+
+                                                </div>
+                                            </li>
+                                            <!-- <li>
+                                                <input type="number" formControlName="netWorthValue" placeholder="Enter value" class="form-control form-control-sm" />
+                                              </li> -->
+                                            <li class="d-flex align-items-end">
+                                                <button type="submit" class="btn btn-fw btn-primary btn-sm" style="margin-top: -4px;">Search</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <app-responsive-table>
+                                <thead class="table-primary text-nowrap">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Customer ID</th>
+                                        <th>Type</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email ID</th>
+                                        <th>Contact No</th>
+                                        <th>Designation</th>
+                                        <th>Company</th>
+                                        <th>City</th>
+                                        <th>Projects</th>
+                                        <th>Domain</th>
+                                        <th>Networth (Cr)</th>
+                                        <th>Send Mail</th>
+                                        <th>Created On</th>
+                                        <th>Created By</th>
+                                        <th>Select All 
+                                            <input type="checkbox" [(ngModel)]="masterSelected" (change)="selectAllRows()"/>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let a of sendMailerData | filter:searchText | paginate: { itemsPerPage: limit, currentPage: p }; index as i">
+                                        <td>{{ limit*(p-1)+i+1 }}</td>
+                                        <td>{{a.id}}</td>
+                                        <td>{{a.type}}</td>
+                                        <td>{{a.firstName}}</td>
+                                        <td>{{a.lastName}}</td>
+                                        <td>{{a.emailID}}</td>
+                                        <td>{{a.contactNo}}</td>
+                                        <td>{{a.designation}}</td>
+                                        <td>{{a.company}}</td>
+                                        <td>{{a.city}}</td>
+                                        <td>{{a.projects}}</td>
+                                        <td>{{a.domain}}</td>
+                                        <td>{{a.networthCr}}</td>
+                                        <td>{{a.sendMail}}</td>
+                                        <td>{{a.createdAt |date: 'dd/MM/yyyy HH:mm:ss ' : 'UTC'}}</td>
+                                        <td>{{a.createdBy}}</td>
+                                        <td>
+                                            <!-- <input type="checkbox" class="form-control-sm" > -->
+                                            <input type="checkbox" class="form-control-sm" [(ngModel)]="a.selected"(change)="checkIfAllSelected()"/>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf="isNotFound == true">
+                                        <td colspan="20" class="text-center">
+                                            <div class="spinner-border"> </div>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf="!isNotFound && sendMailerData?.length == 0">
+                                        <td colspan="20" class="text-center">
+                                            <div class="text-warning fw-semibold">Looks like no data available!</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </app-responsive-table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="pagination-sec text-center">
+                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-end">
+                            <ul class="head-ul d-flex float-none pl-0 mb-1 mt-2">
+                                <form [formGroup]="newsletterForm">
+                                    <li><label class="col-form-label">NewsLetter:</label></li>
+                                    <li>
+                                        <select formControlName="newsletter" class="form-select form-select-sm">
+                                            <option [selected]="true" [disabled]="true" [value]="null">Select NewsLetter</option>
+                                            <option *ngFor="let data of newsLetterData" [value]="data.templateID">{{data.templateName}}</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <button type="submit" (click)="onSubmit()" class="btn btn-send">
+                                            <i class="fa-solid fa-paper-plane"></i> Send Mail!
+                                          </button>
+                                    </li>
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

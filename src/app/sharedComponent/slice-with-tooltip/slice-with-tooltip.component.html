@@ -1,0 +1,22 @@
+<div class="tooltip-container cursor-pointer" *ngIf="text != null">
+    <span *ngIf="text.length > 30" (mouseover)="showTooltip($event)" (mouseout)="hideTooltip()">
+        {{ text | slice: 0: 30 }}...
+    </span>
+    <span *ngIf="text.length <= 30">
+        {{ text }}
+    </span>
+    <i *ngIf="text.length > 30" class="mdi mdi-information" (click)="copyToClipboard(text)" title="Copy full text"></i>
+</div>
+<div class="tooltip" #tooltipElement>{{ text }}</div>
+
+<div class="tooltip-container cursor-pointer" *ngIf="textLong != null">
+    <span *ngIf="textLong.length > 140" (mouseover)="showTooltip($event)" (mouseout)="hideTooltip()">
+        {{ textLong | slice: 0: 140 }}...
+    </span>
+    <span *ngIf="textLong.length <= 140">
+        {{ textLong }}
+    </span>
+    <i *ngIf="textLong.length > 140" class="mdi mdi-information" (click)="copyToClipboard(textLong)"
+        title="Copy full text"></i>
+</div>
+<div class="tooltip" #tooltipElement2>{{ textLong }}</div>
