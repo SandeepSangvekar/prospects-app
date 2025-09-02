@@ -128,3 +128,17 @@ height: 100%;
 .logo-login img{
   width: 230px;
 }
+.login-form{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (max-width: 767.98px) { 
+  .login-form{
+  padding-left: 0rem;
+  padding-right: 0rem;
+  }
+  .logo-login img{
+    width: 180px;
+    margin-top: 1rem;
+  }
+}

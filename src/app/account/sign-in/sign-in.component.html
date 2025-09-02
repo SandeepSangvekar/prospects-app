@@ -54,39 +54,40 @@
     </div>
   </div>
 </div> -->
-<div class="container-fluid page-body-wrapper full-page-wrapper pSpace"  style="height: 100vh;overflow: scroll;" >
-    
-  <div class="card" >
-      <div class="card-body">
-          <div class="row">
-              <div class="col-lg-7 ">
-                  <!-- <div class="card " style="background-color:#a569bd;height: 500px; width: 100% !important ; "> -->
-                  <div class="card " style="background-color:#f7f9fc; width: 100%;">
-                      <!-- <div class="card-header" style="border:none !important;text-align: center;">
+<div class="container-fluid page-body-wrapper full-page-wrapper pSpace" style="height: 100vh;overflow: scroll;">
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-7 col-12">
+          <!-- <div class="card " style="background-color:#a569bd;height: 500px; width: 100% !important ; "> -->
+          <div class="card " style="background-color:#f7f9fc; width: 100%;">
+            <!-- <div class="card-header" style="border:none !important;text-align: center;">
                           <h4 style="font-family: 'Poppins' !important;font-weight: 600;color:white" (click)="proceedLogin()">Simplfy Your business with our CRM</h4>
                       </div> -->
-                      <div class="card-body">
-                        <img class="img-fluid" src="../../../assets/images/newsletter-login.webp">
-                          <!-- <div style="width:80%;margin:-50px auto;height: 400px;">
+            <div class="card-body">
+              <img class="img-fluid" src="../../../assets/images/newsletter-login.webp">
+              <!-- <div style="width:80%;margin:-50px auto;height: 400px;">
                               <img style="width:100%;height: 100%;;" src="../../../assets/images/newsletter-login.webp">
 
                           </div> -->
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-5  d-flex flex-row align-items-center justify-content-center ">
-              
-                  
-                  <form style="font-family: 'Poppins' !important;" [formGroup]="loginForm"  >
-                      <div class="logo-login text-center">
-                          <img src="../../../assets/images/ATlogo.png" class="img-fluid">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-12">
 
-                      </div>  
-                      <div class="mt-4">
-                          <!-- <img src="../../assets/logo.png" style="width:100%;height: 100%;"> -->
-                        <h4 class="text-center" style="font-family: 'Poppins';font-weight: 400px;font-size: 18px;">Welcome To Augtrans</h4>  
-                      </div>  
-                      <!-- <div class="form-group" style="width:350px">
+
+          <form class="login-form" style="font-family: 'Poppins' !important;" [formGroup]="loginForm">
+            <div class="logo-login text-center">
+              <img src="../../../assets/images/ATlogo.png" class="img-fluid">
+
+            </div>
+            <div class="mt-4">
+              <!-- <img src="../../assets/logo.png" style="width:100%;height: 100%;"> -->
+              <h4 class="text-center" style="font-family: 'Poppins';font-weight: 400px;font-size: 18px;">Welcome To
+                Augtrans</h4>
+            </div>
+            <!-- <div class="form-group" style="width:350px">
                         <label for="exampleInputEmail">Company</label>
                         <select  formControlName="company" class="form-select form-select-sm">
                           <option [selected]="true">Select Company</option>
@@ -94,48 +95,50 @@
                           <option value="NIKE">Nike</option>
                       </select>
                       </div> -->
-                      <div class="form-group" style="width:350px">
-                          <label for="exampleInputEmail">Username</label>
-                          <input placeholder="Enter user name" style="background-color: #f4f6f6;" formControlName="loginName" type="text"
-                              class="form-control form-control-md" >
-                          <!-- <div *ngIf="f['company_name'].touched && f['company_name'].invalid">
+            <div class="form-group">
+              <label for="exampleInputEmail">Username</label>
+              <input placeholder="Enter user name" style="background-color: #f4f6f6;" formControlName="loginName"
+                type="text" class="form-control form-control-md">
+              <!-- <div *ngIf="f['company_name'].touched && f['company_name'].invalid">
                               <small class="text-danger"
                                   *ngIf="f['company_name'].errors?.['required']">*Required</small>
                           </div> -->
-                      </div>
-                      <div class="form-group mt-4" style="width:350px">
+            </div>
+            <div class="form-group mt-4">
               <label class="fl-10">Password</label>
-                        
-                          <input placeholder="Password" style="background-color: #f4f6f6;" formControlName="password" type="password"
-                              class="form-control form-control-md" >
-                          <!-- <div *ngIf="f['company_name'].touched && f['company_name'].invalid">
+
+              <input placeholder="Password" style="background-color: #f4f6f6;" formControlName="password"
+                type="password" class="form-control form-control-md">
+              <!-- <div *ngIf="f['company_name'].touched && f['company_name'].invalid">
                               <small class="text-danger"
                                   *ngIf="f['company_name'].errors?.['required']">*Required</small>
                           </div> -->
-                      </div>
-            
-                     
-                      <div  >
-                          <!-- <button style="float: right;" class="btn btn-primary">Login </button> -->
-                          <span class="text-right mt-1" style="float: right;color:blue;text-decoration: underline;">Forgot Password?</span>
-                        </div>
-            
-                     <div style="clear: both;"></div>
-                      <div class="form-group mt-1" style="width:350px">
-                        <button (click)="proceedLogin()" style="float: right;padding-left:20px;padding-right: 20px;"  class="btn btn-primary btn-sm mt-2">Login </button>
-                     
-                      </div>
-            
-                    </form>
-                 
-              </div>
-          </div>
-        <!-- <h5 class="card-title">Card title</h5>
+            </div>
+
+
+            <div>
+              <!-- <button style="float: right;" class="btn btn-primary">Login </button> -->
+              <span class="text-right mt-1" style="float: right;color:blue;text-decoration: underline;">Forgot
+                Password?</span>
+            </div>
+
+            <div style="clear: both;"></div>
+            <div class="form-group mt-1">
+              <button (click)="proceedLogin()" style="float: right;padding-left:20px;padding-right: 20px;"
+                class="btn btn-primary btn-sm mt-2">Login </button>
+
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+      <!-- <h5 class="card-title">Card title</h5>
         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a> -->
-      </div>
     </div>
-    
+  </div>
+
 </div>
