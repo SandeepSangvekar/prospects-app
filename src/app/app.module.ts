@@ -11,7 +11,6 @@ import { UserLogsComponent } from './user-management/user-logs/user-logs.compone
 import { UserRolesComponent } from './user-management/user-roles/user-roles.component';
 import { UserMasterComponent } from './user-management/user-master/user-master.component';
 import { DatePipe } from '@angular/common';
-import { SignInComponent } from './account/sign-in/sign-in.component';
 import { CurrencyPipe, DecimalPipe } from '@angular/common';
 import localeIn from '@angular/common/locales/en-IN';
 import { CommonModule, registerLocaleData } from '@angular/common';
@@ -34,7 +33,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     UserLogsComponent,
     UserRolesComponent,
     UserMasterComponent,
-    SignInComponent, 
     DashboardComponent, 
   ],
 

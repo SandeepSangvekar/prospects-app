@@ -5,12 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Shared components
 import { FooterComponent } from './footer/footer.component';
 // import { SidebarComponent } from './sidebar/sidebar.component';
-import { UnderDevelopmentComponent } from './under-development/under-development.component';
-import { LocationModalComponent } from './location-modal/location-modal.component';
+// import { UnderDevelopmentComponent } from './under-development/under-development.component';
+// import { LocationModalComponent } from './location-modal/location-modal.component';
 import { SliceWithTooltipComponent } from './slice-with-tooltip/slice-with-tooltip.component';
-import { LocationSectionSharedComponent } from './location-section-shared/location-section-shared.component';
+// import { LocationSectionSharedComponent } from './location-section-shared/location-section-shared.component';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
-import { ReusableFormSectionComponent } from './reusable-form-section/reusable-form-section.component';
+// import { ReusableFormSectionComponent } from './reusable-form-section/reusable-form-section.component';
 import { ResponsiveTableComponent } from './responsive-table/responsive-table.component';
 
 // Directives
@@ -51,12 +51,12 @@ import { SortPipe } from '../sort.pipe';
     HeaderComponent,
     FooterComponent,
     // SidebarComponent,
-    UnderDevelopmentComponent,
-    LocationModalComponent,
+    // UnderDevelopmentComponent,
+    // LocationModalComponent,
     SliceWithTooltipComponent,
-    LocationSectionSharedComponent,
+    // LocationSectionSharedComponent,
     ConfirmModalComponent,
-    ReusableFormSectionComponent,
+    // ReusableFormSectionComponent,
     ResponsiveTableComponent,
 
     // Directives
@@ -115,12 +115,12 @@ import { SortPipe } from '../sort.pipe';
     HeaderComponent,
     FooterComponent,
     // SidebarComponent,
-    UnderDevelopmentComponent,
-    LocationModalComponent,
+    // UnderDevelopmentComponent,
+    // LocationModalComponent,
     SliceWithTooltipComponent,
-    LocationSectionSharedComponent,
+    // LocationSectionSharedComponent,
     ConfirmModalComponent,
-    ReusableFormSectionComponent,
+    // ReusableFormSectionComponent,
     ResponsiveTableComponent,
 
     // Directives

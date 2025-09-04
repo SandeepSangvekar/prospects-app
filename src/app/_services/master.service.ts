@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { LocationModalComponent } from '../sharedComponent/location-modal/location-modal.component';
+// import { LocationModalComponent } from '../sharedComponent/location-modal/location-modal.component';
 import { any } from 'codelyzer/util/function';
 import { DatePipe } from '@angular/common';
 
@@ -49,75 +49,7 @@ export class MasterService {
     const item = localStorage.getItem("gdUserData");
     return item ? JSON.parse(item) : null;
   }
-  dateFilterLast7Days() {
-    let today = new Date();
-    today.setDate(today.getDate() - 7);
-    let fromDate: any = this.datepipe.transform(today, 'yyyy-MM-dd');
-    let toDate: any = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
-
-    let filterDate = {
-      startDate: fromDate.toString(),
-      endDate: toDate.toString()
-    }
-    return filterDate;
-  }
-  dateFilterLast1Day() {
-    let today = new Date();
-    today.setDate(today.getDate() - 1);
-    let fromDate: any = this.datepipe.transform(today, 'yyyy-MM-dd');
-    let toDate: any = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
-
-    let filterDate = {
-      startDate: fromDate.toString(),
-      endDate: toDate.toString()
-    }
-    return filterDate;
-  }
-
-  dateFilterLast15Days() {
-    let today = new Date();
-    today.setDate(today.getDate() - 15);
-    let fromDate: any = this.datepipe.transform(today, 'yyyy-MM-dd');
-    let toDate: any = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
-
-    let filterDate = {
-      startDate: fromDate.toString(),
-      endDate: toDate.toString()
-    }
-    return filterDate;
-  }
-  gethub() {
-    let data={
-    
-    }
-    let apiLink = '/master/hub/getHub';
-
-        const httpOptions = { headers: this.getAuthHeaders() };
-        return this.http.post(`${environment.apiUrl}${apiLink}`, data, httpOptions);
-      }
-  country()
-  {
-    let data={
-
-    }
-    let apiLink = '/master/market/getMarket';
-    const httpOptions = { headers: this.getAuthHeaders() };
-    return this.http.post(`${environment.apiUrl}${apiLink}`, data, httpOptions);
-  }
-  state(data:any)
-  {
-   
-    let apiLink = '/master/state/getState';
-    const httpOptions = { headers: this.getAuthHeaders() };
-    return this.http.post(`${environment.apiUrl}${apiLink}`, data, httpOptions);
-  }
-  city(data:any)
-  {
-   
-    let apiLink = '/master/city/getCity';
-    const httpOptions = { headers: this.getAuthHeaders() };
-    return this.http.post(`${environment.apiUrl}${apiLink}`, data, httpOptions);
-  }
+  
   // Common Modal End
   getListData(apiLink: any){
     // let data={};
